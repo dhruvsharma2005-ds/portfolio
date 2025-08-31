@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dhruv's portfolio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		body{
+			background-color:  rgb(0, 0, 33);
+			color: white;
+			font-family: 'poppins' , sans-serif;
+		}
+
+		nav{
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			height: 60px;
+			background-color: rgb(0, 0, 25);
+			cursor: pointer;
+		}
+
+		nav ul{
+			display: flex;
+			justify-content:center;	
+			cursor: pointer;	
+		}
+
+		nav ul li{
+			list-style: none;
+			margin:0 25px;
+			font-size: 20px;
+			cursor: pointer;
+			transition: transform 0.5s;
+
+		}
+		nav ul li a:hover{
+           color: #ff004f;
+           transform: translateY(-10px);
+           font-size: 22px;
+		}
+
+		.form{
+			position:relative;
+			top: 30%;
+      left: 0px;
+			transform: translate(-50%,-50%);
+			transition: all 1s;
+			width:25.5px;
+			/*height: 25.5px;*/
+			background: white;
+			box-sizing: border-box;
+			border-radius: 25px;
+			border: 4px solid white;
+			padding: 10px;
+		}
+
+		.input{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			/*height: 25.5px;*/
+			line-height: 30px;
+			outline: 0;
+			border: 0;
+			display: none;
+			font-size: 1em;
+			border-radius: 20px;
+			padding: 0 20px;
+		}
+
+		.fa{
+			box-sizing: border-box;
+			padding: 10px;
+			width: 25.5px;
+			height: 25.5px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			border-radius: 50%;
+			color: #8c52ff;
+			text-align: center;
+			font-size: 1.2em;
+			transition: all 1s;
+
+		}
+
+		.form:hover{
+			width: 200px;
+			cursor: pointer;
+		}
+
+		.form:hover .input{
+			display: block;
+		}
+
+		.form:hover .fa{
+			background: #8c52ff;
+			color: white;
+		}
+
+		.left{
+			font-size: 1.5rem;
+			cursor: pointer;
+			color: #ff8800;
+			font-family: cursew;
+		}
+			
+		.firstsection{
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			margin: 50px 0;
+		}
+		.leftsection{
+			margin: 100px;
+			margin-top: 150px;
+			font-size: 50px;
+			font-family: cursew;
+
+        }
+
+        .name{
+        	color: #ff8800;
+        	font-family: cursew;
+        	font-size: 1.3em;
+        }
+
+        #elements{
+        	color: #ff8800;
+        	font-size: 1.3em;
+        	font-family: cursew;
+        }
+
+        .rightsection{
+        	float: right;
+        	margin-top: -50px;
+        	padding-right: 300px;
+        	cursor: pointer;
+        }
+
+     /*main hr{
+      	border: 0;
+      	background: #9c97f1;
+      	height: 1.2px;
+       	margin: 60px 90px;*/
+       
+
+        #about{
+        	padding: 80px 0px;
+        	color: #ababab;
+        	padding-right: 400px;
+        }
+        .row{
+        	display: flex;
+        	justify-content: space-between;
+        	flex-wrap: wrap;
+        }
+        .about-col-1{
+        	flex-basis: 30%;
+        }
+        .about-col-1 img{
+          width: 100%;
+          padding-left: 130px;
+        }
+       .about.col-2{
+        	/*flex-basis: 65%;*/
+        }
+
+        .sub-title{
+
+        	font-size: 60px;
+        	font-weight: 600;
+        	color: white;
+        	    margin-right: 365px;
+        }
+
+        .tab-titles{
+        	display: flex;
+        	margin: 20px 0 40px;
+        }
+
+        .tab-links{
+        	margin-right: 50px;
+        	font-size: 18px;
+        	font-weight: 500;
+        	cursor: pointer;
+        	position: relative;
+
+        }
+        .tab-links::after{
+        	content: '';
+        	width: 0;
+        	height: 3px;
+        	background: #ff004f;
+        	position: absolute;
+        	left: 0;
+        	bottom: -8px;
+        	transition: 0.5s;
+        }
+          
+          .tab-links.active-link::after{
+          	width: 50%;
+          }
+          .tab-contents ul li{
+          	list-style: none;
+          	margin: 10px 0;
+          }
+
+          .tab-contents ul li span{
+          	color: #b54769;
+          	font-size: 14px;
+          }
+
+          .tab-contents{
+          	display: none;
+          }
+
+          .tab-contents.active-tab{
+          	display: block;
+          }
+
+          /*-------services-----*/
+
+           .sub-service{
+
+        	font-size: 60px;
+        	font-weight: 600;
+        	color: white;
+        	margin-left: 13%;
+        	margin-top: 98px;
+        }
+
+
+         #products{
+			display:flex;
+			padding: 30px;
+			padding-left: 100px;
+			margin: 40px;
+		}
+
+
+        .d1{
+			border:2px solid ;
+			border-radius: 10px;
+			width:300px;
+			height:200px;
+			margin: 20px;
+      background-color: #141629;
+       padding: 20px;
+       color: #00ffce;
+       transition: background 0.5s , transform 0.5s;
+
+
+            
+		}
+		.brackets-with-slash{
+			margin: 20px;
+		}
+
+		.color{
+			color: grey;
+			padding-top: 20px;
+			font-size: 11px;
+		}
+
+
+
+
+		
+		.d2{
+			border:2px solid ;
+			border-radius: 10px;
+			width:300px;
+			height:200px;
+			margin: 20px;
+			color: #fff;
+			padding: 20px;
+			background-color: #141629;
+			color: purple;
+			transition: background 0.5s , transform 0.5s;
+			
+		}
+
+		.icon{
+			font-size: 40px;
+		}
+		.d3{
+			border:2px solid ;
+			border-radius: 10px;
+			width:300px;
+			height:200px;
+			margin: 20px;
+			color: green;
+			padding: 20px;
+		 background-color: #141629;
+		 transition: background 0.5s , transform 0.5s;
+
+			
+		}
+		.d1:hover{
+			background: #000000;
+			transform: translateY(-10px);
+		}
+		.d2:hover{
+			background: #000000;
+			transform: translateY(-10px);
+		}
+		.d3:hover{
+			background:#000000;
+			transform: translateY(-10px);
+		}
+
+/*'''''''''''work------------*/
+
+#portfolio{
+	padding: 50px 0;
+}
+.sub-work{
+
+        	font-size: 60px;
+        	font-weight: 600;
+        	color: white;
+        	margin-left: 13%;
+        }
+
+
+.work-list{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+	grid-gap: 40px;
+	margin: 80px;
+
+}
+		.work{
+			border-radius: 10px;
+			position: relative;
+			overflow: hidden;
+		}
+		.work img{
+			width: 100%;
+			border-radius: 10px;
+			display: block;
+			cursor: pointer;
+			transition: transform 0.5s;
+		}
+
+    .layer{
+    	width: 100%;
+    	height: 0;
+    	background: linear-gradient(rgba(0,0,0,0.6),#ff004f);
+    	border-radius: 10px;
+    	position: absolute;
+    	left: 0;
+    	bottom: 0;
+    	overflow: hidden;
+    	align-items: center;
+    	justify-content: center;
+    	flex-direction: column;
+    	padding: 0 10px;
+    	text-align: center;
+    	font-size: 14px;
+    	cursor: pointer;
+    	transition: height 0.5s;
+    }        
+
+    .layer h3{
+    	font-weight: 500;
+    	margin-bottom: 20px;
+    }
+    .layer a{
+    	margin-top: 20px;
+    	color: #ff004f;
+    	text-decoration: none;
+    	font-size: 18px;
+    	line-height: 60px;
+    	background: #fff;
+    	width: 60px;
+    	height: 60px;
+    	border-radius: 50%;
+    	text-align: center;
+
+    }
+    .work:hover img{
+    	transform: scale(1.1);
+
+    }
+    .work:hover .layer{
+    	height: 100%;
+    }
+      .btn{
+      	display: block;
+      	margin: 50px auto;
+      	width: fit-content;
+      	border: 1px solid #ff004f;
+      	padding: 14px 50px;
+      	border-radius: 6px;
+      	text-decoration: none;
+      	color: #fff;
+
+      	transition: background 0.5s;
+      }  
+      .btn:hover{
+      	background: #ff004f;
+      }
+
+
+              /*---------- contact --------*/
+              .contact{
+
+        	font-size: 40px;
+        	font-weight: 600;
+        	color: white;
+        	margin-left: 13%;
+        }
+        .telegram{
+        	font-size: 20px;
+        	margin-left: 13%;
+        	margin-top: 30px;
+          color: #ff004f;
+
+        }
+        .gmail{
+        	color: #fff;
+        	margin-left: 10px;
+          font-size: 12px;
+        }
+
+        .phone{
+        	font-size: 20px;
+        	margin-left: 13%;
+        	margin-top: 30px;
+          color: #ff004f;
+
+        }
+        .no{
+        	color: #fff;
+        	margin-left: 10px;
+          font-size: 12px;
+        }
+
+        .icons{
+        	font-size: 20px;
+        	margin-left: 13%;
+        	margin-top: 30px;
+          color: gray;
+          transition: transform 0.5s;
+        }
+        .icons:hover{
+        	color: #ff004f;
+        	transform: translateY(-5px);
+        }
+
+        
+            .btnn{
+      	display: block;
+        margin-left: 13%;
+        margin-top: 25px;
+      	width: fit-content;
+      	border: 1px solid #ff004f;
+      	padding: 14px 50px;
+      	border-radius: 6px;
+      	text-decoration: none;
+      	background: #ff004f;
+      	color: #fff;
+      	transition: background 0.5s;
+      }  
+      .btnn:hover{
+      	background: transparent;
+      }
+        .contact-right{
+        	float: right;
+        	margin-top: -300px;
+        }
+
+        .text{
+        	
+    margin-left: -190%;
+ 
+    color: gray;
+    height: 61px;
+
+        }
+
+        .email{
+        	
+    margin-left: -190%;
+    
+    color: gray;
+    height: 61px;
+        }
+
+        .textarea{
+
+    margin-left: -190%;
+       color: gray;
+    
+
+        }
+
+        .contact-right form{
+        	width: 50%;
+        }
+
+        form input, form textarea{
+        	width: 100%;
+        	border:0;
+        	outline: none;
+        	background: #141629;
+        	padding: 15px;
+        	margin: 15px 0;
+        	color: #fff;
+        	font-size: 18px;
+        	border-radius: 6px;
+        }
+
+
+        
+        .btnn.btnn2{
+        	display: block;
+        	 margin-left: -190%;
+            margin-top: 25px;
+      	width: fit-content;
+      	border: 1px solid #ff004f;
+      
+      	border-radius: 6px;
+      	text-decoration: none;
+      	background: #ff004f;
+      	color: #fff;
+      	transition: background 0.5s;
+        }
+        
+        form .btnn2{
+        	padding: 14px 60px;
+        	font-size: 18px;
+        	margin-bottom: 50px;
+        }
+        .btnn2:hover{
+        	background: transparent;
+        }
+        .copyright{
+        	width: 100%;
+        	text-align:center;        
+        	padding: 20px 0;
+        	background: #262626;
+        	font-weight: 300;
+        	margin-top: 145px;
+          margin-bottom: -1px;
+        }
+        .copyright i{
+        	color: #ff004f;
+        }
+	</style>
+</head>
+<body>
+  <header>
+  	<nav>
+  		<div class="left">Dhruv's Portfolio</div>
+  		<div class="right"></div>
+  		<ul>
+  		<li><a href="#home"> home </a></li>	
+  		<li><a href="#about">about</a></li>
+  	  <li><a href="#service">services</a></li>
+  		<li><a href="#work">work</a></li>
+  		<li><a href="#contact">contact-me</a></li>
+</ul>
+<form class="form">
+	<input type="search" placeholder="search here..." name="" class="input">
+	<i class="fa fa-search"></i>
+
+</form>
+  	</nav>
+  </header>
+  <main>
+  	<section class="firstsection">
+  		<div class="leftsection">
+  			Hey My name is <a class="name">Dhruv</a>
+  		<br>and I am a passionate 
+  		 <br>
+  		<span id="elements">
+  		
+</span>
+  			
+  		</div>
+  		<div class="rightsection">
+         <img src="C:\Users\DELL\Downloads\portedit-removebg-preview.png">
+  			
+  		</div>
+  	</section>
+  	<!-- <hr> -->
+
+
+    <!-- ---------about-------- -->
+
+
+  	<div id="about"></div>
+  		<div class="container">
+  			<div class="row">
+  				<div class="about-col-1">
+  					<img src="C:\Users\DELL\Downloads\portfolio-removebg-preview (1).png">
+  				</div>
+  				<div class="about-col-2">
+  					<a name="about"><h1 class="sub-title">About-Me</h1></a>
+  					 
+  				
+  				<div class="tab-titles">
+  					<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+  					<p class="tab-links" onclick="opentab('experience')">Experience</p>
+  					<p class="tab-links" onclick="opentab('education')">Education</p>
+  				</div>
+  				<div class="tab-contents active-tab" id="skills">
+  					<ul>
+  						<li><span>UI&UX</span><br>Designing Web/App interfaces </li>
+  						<li><span>Web Development</span><br>Web app Deveolpment </li>
+             	<li><span>App Development</span><br>Building Android/ios apps </li>
+
+  					</ul>
+  				</div>
+  				  				<div class="tab-contents" id="experience">
+  					<ul>
+  						<li><span>2025 - current</span><br>learning full stack deveopment </li>
+  						<li><span>2024 - 2025</span><br>Web app Deveolpment </li>
+             	<li><span>2023 - 2024</span><br>C, C++ </li>
+
+  					</ul>
+  				</div>
+  				  				<div class="tab-contents" id="education">
+  					<ul>
+  						<li><span>2024-2028</span><br>Pursuing My Becholor of Technoogy From JITM Borawan </li>
+  						<li><span>2024</span><br>completed my higher education </li>
+             	<li><span>2022</span><br>completed my class 10th </li>
+
+  					</ul>
+  				</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+
+
+  	<!-- -----------services-------- -->
+
+
+
+
+  	<a name="service"><h1 class="sub-service">Services</h1></a>
+
+  	<div id="products">
+			<div class="d1">
+       <h1 class="brackets-with-slash"><i class="fa-solid fa-code"></i> </h1>
+       <h1> Web Design</h1>
+       <p class="color"> This is the most common way of charging clients in ecommerce web design, and it's probably the most effective too. Instead of charging per project, set a price for each hour of work that you put into it </p>
+
+       <p class="color">read more</p>
+
+				
+				
+			</div>
+
+
+			<div class="d2">
+				<h1 class="brackets-with-slash"><i class="fa-solid fa-crop-simple" ></i></h1>
+				<h1>UI/UX Design</h1>
+				<p class="color">user interface (UI) refers to the interactivity, look, and feel of a product screen or web page, while user experience (UX) covers a user's overall experience with the product or website.
+</p>
+				<p class="color">read more</p>
+			</div>
+				<div class="d3">
+				<h1 class="brackets-with-slash"><i class="fa-brands fa-app-store"></i></h1>
+				<h1>App Design</h1>
+				<p class="color">a video-editing and AI research company headquartered in New York City. Their flagship app, Captions, is available on iOS, Android, and Web and offers a suite of tools aimed at streamlining the creation and editing of videos.</p>
+				<p class="color"> read more</p>
+
+			</div>
+			
+
+</div>
+
+<!-- -----------work------- -->
+
+       <div id="portfolio">
+
+       <div class="container">
+
+      <a name="work"><h1 class="sub-work">My Work</h1></a>
+      <div class="work-list">
+      	<div class="work">
+      		<img src="C:\Users\DELL\Documents\Dhruv's Portfolio\Web-Development.jpeg" height="300px" width="300">
+      		<div class="layer">
+      			<h3>Web Development</h3>
+      			<p>Web development is the process of building and maintaining websites and web applications.</p>
+      			<a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+      		</div>
+      	</div>
+      	<div class="work">
+      		<img src="C:\Users\DELL\Documents\Dhruv's Portfolio\benefits-of-mobile-app-for-business.webp" height="300px" width="300">
+      		<div class="layer">
+      		<h3>App  Development</h3>
+      			<p>App development is the process of creating software applications for mobile devices like smartphones and tablets, or for other computing platforms.</p>
+      			<a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+      		</div>
+      	</div>
+      	<div class="work">
+      		<img src="C:\Users\DELL\Documents\Dhruv's Portfolio\music-streaming-app-development-new-devabit.webp" height="300px" width="300">
+      		<div class="layer">
+      		<h3>  Music App</h3>
+      			<p>Developing a music app involves several key stages, from initial concept to deployment and ongoing maintenance.</p>
+      			<a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+      		</div>
+      	</div>
+      </div>
+      <a href="#" class="btn"> See more</a>
+
+    </div>
+    </div>
+
+       <!-- ----------contact-------- -->
+
+
+
+
+     <a name="contact"> <h1 class="contact">Contact-Me</h1></a>
+     <div class="telegram">	<i class="fa-brands fa-telegram" ></i>
+     	<a class="gmail">contact@example.com</a>
+      </div>
+      <div class="phone"><i class="fa-solid fa-square-phone"></i>
+      	<a class="no">0123456789</a></div>
+      	<div class="icons">
+      		<pre><i class="fa-brands fa-facebook"></i> <i class="fa-brands fa-square-twitter"></i> <i class="fa-brands fa-instagram"></i> <i class="fa-brands fa-linkedin"></i>
+      		</pre>
+      	</div>
+      <a href="#" class="btnn"> Download CV</a>
+
+      
+      <div class="contact-right">
+      	<form>
+      		<div class="text">
+      		<input type="text" name="name" placeholder="Your Name" required size="35px" ></div>
+      		<div class="email">	<input type="email" name="email" placeholder="Your email" required></div>
+      			      		<div class="textarea"><textarea name="message" rows="6" placeholder="Your Message" required></textarea></div>
+      			      	<div >	<button type="submit" class="btnn btnn2">Submit</button></div>
+
+      	</form>
+      	
+      </div>
+            
+            <div class="copyright">
+            	<p>Copyright © Dhruv's Made with <i class="fa-solid fa-heart"></i> by Easy Tutorials</p>
+            </div>
+
+ 
+
+     
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+  	var typed = new Typed('#elements',{
+  		strings: ['Web developer','Coder', 'video editor','Graphic-Designer','programmer'],typeSpeed:50, 
+  	})
+
+  	var tablinks = document.getElementsByClassName('tab-links')
+  	var tabcontents = document.getElementsByClassName('tab-contents')
+
+  	function opentab(tabname){
+  		for(tablink of tablinks){
+  			tablink.classList.remove("active-link");
+  		}
+  			for(tabcontent of tabcontents){
+  			tabcontent.classList.remove("active-tab");
+  		}
+  		event.currentTarget.classList.add("active-link")
+  		document.getElementById(tabname).classList.add("active-tab")
+  	}
+
+  </script>
+</body>
+</html>
